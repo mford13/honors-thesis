@@ -1,0 +1,47 @@
+## Load Data and Packages
+View(Homo_sapiens_expr_simple_development)
+#Packages: tidyverse, dplyr, viridis, Interpol.T, lubridate, ggExtra, tidyr
+library(tidyverse)
+library(dplyr) # easier data wrangling 
+library(viridis) # colour blind friendly palette, works in B&W also
+library(Interpol.T) #  will generate a large dataset on initial load
+library(lubridate) # for easy date manipulation
+library(ggExtra) # because remembering ggplot theme options is beyond me
+library(tidyr) 
+
+##Clean
+ge <- data('Homo_sapiens_expr_simple_development', package = "Interpol.T")
+
+## Confirm Cell Types, 311
+cellt <- unique(Homo_sapiens_expr_simple_development$Anatomical.entity.name)
+table(Homo_sapiens_expr_simple_development$Anatomical.entity.name)
+length(table(Homo_sapiens_expr_simple_development$Anatomical.entity.name))
+
+## Areas of Interest
+________________________________________
+##Broad Range Study: 
+#squamous epithelium, zone of skin
+BRs <- subset(Homo_sapiens_expr_simple_development, (Anatomical.entity.name=="squamous epithelium"  | Anatomical.entity.name=="zone of skin"))
+View(BRs)
+heatmap(BRs$Expression.rank, scale="row")
+
+--------------------------------------
+  #Grow the tree
+  rpart(Anatomical.entity.name~)
+
+
+
+##Oral Associated
+#buccal mucosa cell, body of tongue, esophagus mucosa, esophagus squamous epithelium, gingiva, gingiva epithelium, minor salivary gland, mouth mucosa, oral cavity, saliva-secreting gland
+
+##Vaginal Associated
+#cervix epithelium, cervix squamous epithelium, body of uterous, cervix squamous epithelium, ectocervix, endocervix, endometrium, endometrium epithelium, female reproductive system, germinal epithelium of ovary, oviduct epithelium, uterine cervix, uterus, vagina,  
+
+##Penile Associated
+#epididymis, left testis, penis, right testis, sperm
+
+##Anal Associated
+#prostate gland, rectum
+
+##Skin Differentiation
+#skin epidermis, skin of abdomen, skin of hip, skin of leg, upper arm skin, upper leg skin, 
