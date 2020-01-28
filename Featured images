@@ -1,0 +1,23 @@
+# load required packages
+library(imager)
+library(diplyr)
+
+# setup working directory
+setwd("C:/Users/mford2/Desktop/ABACards")
+
+# import functions
+source("image_functionsUpdated.R")
+#source("image_functions.R")
+
+####################################################################################
+#   Main function
+####################################################################################
+#win_size = 5
+#stride = 5
+img_featurized_updated = 
+  func_gen_img_qual(280, dir_ = "C:/Users/mford2/Desktop/ABACards"/Processed (480 x 480)/", 
+                    win_size = 100, stride = 10)
+print(img_featurized_updated)
+
+setwd(""C:/Users/mford2/Desktop/ABACards"C:/Users/nmajo/Desktop/CMU SURE")
+save(img_featurized_updated, file = "image_featurized_updated")
